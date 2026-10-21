@@ -1,0 +1,12 @@
+services:
+  task-analyzer-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: sdd-task-analyzer:latest
+    container_name: sdd-task-analyzer-test
+    environment:
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
+      - PYTHONPATH=/app
+    command: ["pytest", "tests/test_harness.py", "-v"]
